@@ -1,0 +1,74 @@
+﻿@{
+   Layout = "~/SiteLayout.cshtml"; 
+}
+
+<h2>Result</h2>
+<p class="subheader">The Result resource represents a result in the Appel database</p>
+<hr>
+
+<h3>Supported Verbs</h3>
+<table>
+  <thead>
+    <tr>
+      <th width="200">Verb</th>
+      <th width="200">URI</th>          
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><h5>GET</h5></td>
+      <td><h5>/results/&#60;ID&#62;</h5></td>      
+    </tr>
+    <tr>
+     <td><h5>POST</h5></td>
+      <td><h5>/results</h5></td>    
+    </tr>
+    <tr>
+     <td><h5>PUT</h5></td>
+       <td><h5>/results/&#60;ID&#62;</h5></td>       
+    </tr>
+    <tr>
+     <td><h5>DELETE</h5></td>
+      <td><h5>/results/&#60;ID&#62;</h5></td>         
+    </tr>
+  </tbody>
+</table>
+<hr>
+<h3>Schema</h3>
+<p class="subheader">The Appel database makes use of the new <a href="http://json-schema.org/"></a>JSON Schema</a>
+     standard, The current schema supported is JSON Schema version 3.
+</p>
+<pre class="json-schema">
+{
+    "type": "object", 
+    "properties": {
+        "ID":{"type":"number", "required" : true},        
+        "Placing":{"type":"number" , "required" : true},
+        "ReferenceURI":{"type":"string", "required" : true},       
+        "FencerURI":{"type":"string", "required" : true}, 
+        "CompetitionURI":{"type":"string", "required" : true }
+    }
+}
+</pre>
+<hr>
+
+
+<h3>Creating</h3>
+<p class="subheader">Below is an example of a valid body for creating and updating</p>
+<pre class="json-schema">{"Placing":5,"FencerID":1, "CompetitionID":1}</pre>
+<hr>
+
+
+<h3>Response</h3>
+<p class="subheader">The below response is from a successful GET request
+</p>
+<pre class="json-schema">
+{
+    "ID":1,
+    "Placing":1,
+    "ReferenceURI":"http://localhost:9630/results/1",
+    "FencerURI":"http://localhost:9630/fencers/1",
+    "CompetitionURI":"http://localhost:9630/competitions/1"
+}
+</pre>
+

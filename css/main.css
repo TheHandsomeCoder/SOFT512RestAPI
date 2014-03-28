@@ -1,0 +1,139 @@
+﻿header {
+background: url(../img/marquee-stars.svg) #074e68;
+background-size: cover;
+padding: 22px 0;
+}
+
+.row {
+    max-width: 80rem;
+}
+
+.sidebar {
+background: #fafafa;
+padding: 32px 20px;
+}
+
+header h1 {
+color: white;
+font-weight: 300;
+margin-bottom: 0;
+}
+
+header h4 {
+color: #cccccc;
+font-weight: 300;
+}
+
+@media only screen and (min-width: 40.063em){
+.top-bar-section .has-form {
+background: #333333;
+padding: 0 15px;
+height: 45px;
+}
+}
+
+.top-bar-section ul li > a.button {
+background: #008cba;
+font-size: 0.8125rem;
+padding-right: 15px;
+padding-left: 15px;
+}
+
+@media only screen and (min-width: 40.063em) {
+    .top-bar input, .top-bar .button {
+        font-size: 0.875rem;
+        position: relative;
+        top: 7px;
+    }
+}
+.top-bar .button {
+padding-top: 0.45rem;
+padding-bottom: 0.35rem;
+margin-bottom: 0;
+font-size: 0.75rem;
+}
+
+h1, h2, h3 {
+font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !important;
+}
+
+#main-content {
+
+padding-bottom: 22px;
+}
+
+.signup-panel {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-top: 30px;
+}
+.signup-panel i {
+  font-size: 30px;
+  line-height: 50px;
+  color: #999;
+}
+.signup-panel form input, .signup-panel form span {
+  height: 50px;
+}
+.signup-panel .welcome {
+  font-size: 26px;
+  text-align: center;
+  margin-left: 0;
+}
+.signup-panel p {
+  font-size: 13px;
+  font-weight: 200;
+  margin-left: 25%;
+}
+.signup-panel .button {
+  margin-left: 35%;
+}
+
+.sidebar .side-nav li.active > a:first-child {
+  font-weight: bold;
+  color: #008fba;
+  position: relative;
+  margin: 0 -20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background: rgba(0, 64, 84, 0.05); }
+
+.sidebar .side-nav li:hover > a:first-child {
+  color: #006887;
+  position: relative;
+  margin: 0 -20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background: rgba(0, 64, 84, 0.03); }
+
+.side-nav li.divider {
+margin: 16px 0px;
+}
+.side-nav li.divider {
+border-top: 1px solid;
+height: 0;
+padding: 0;
+list-style: none;
+border-top-color: white;
+}
+
+ul, ol, dl {
+font-size: 1rem;
+line-height: 1.6;
+list-style-position: outside;
+font-family: inherit;
+}
+
+.side-nav li {
+margin: 0;
+padding: 0;
+}
+.side-nav li {
+margin: 0 0 0.38889rem 0;
+
+}
+
+.main-section {
+    margin: 25px 0px;
+}

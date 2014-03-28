@@ -1,0 +1,117 @@
+﻿@{
+   Layout = "~/SiteLayout.cshtml"; 
+}
+
+<h2>Competition</h2>
+<p class="subheader">The Competition resource represents a competition in the Appel database</p>
+<hr>
+
+<h3>Supported Verbs</h3>
+<table>
+  <thead>
+    <tr>
+      <th width="200">Verb</th>
+      <th width="200">URI</th>          
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><h5>GET</h5></td>
+      <td><h5>/competitions/&#60;ID&#62;</h5></td>      
+    </tr>
+    <tr>
+     <td><h5>POST</h5></td>
+      <td><h5>/competitions</h5></td>    
+    </tr>
+    <tr>
+     <td><h5>PUT</h5></td>
+       <td><h5>/competitions/&#60;ID&#62;</h5></td>       
+    </tr>
+    <tr>
+     <td><h5>DELETE</h5></td>
+      <td><h5>/competitions/&#60;ID&#62;</h5></td>         
+    </tr>
+  </tbody>
+</table>
+<hr>
+<h3>Schema</h3>
+<p class="subheader">The Appel database makes use of the new <a href="http://json-schema.org/"></a>JSON Schema</a>
+     standard, The current schema supported is JSON Schema version 3.
+</p>
+<pre class="json-schema">
+{
+    "type": "object",
+    "properties": {
+        "ID":{"type":"number", "required" : true},
+        "Title":{"type":"string", "required" : true},
+        "Venue":{"type":"string", "required" : true},
+        "ReferenceURI":{"type":"string", "required" : true},
+        "CompetitionResultsURI":{"type":"string", "required" : true}
+    }
+}
+
+</pre>
+<hr>
+
+<h3>Creating</h3>
+<p class="subheader">Below is an example of a valid body for creating and updating</p>
+<pre class="json-schema">{"Title"":"Dublin Epee","Venue":"UCD"}</pre>
+<hr>
+
+<h3>Response</h3>
+<p class="subheader">The below response is from a successful GET request
+</p>
+<pre class="json-schema">
+{
+    "ID":1,
+    "Title":"Irish Open",
+    "Venue":"UCD",
+    "ReferenceURI":"http://localhost:9630/competitions/1",
+    "CompetitionResultsURI":"http://localhost:9630/competitions/1/results"
+}
+</pre>
+<hr>
+<a name="Results"></a><h2 >Competition Results</h2>
+<p class="subheader">The Competition results resource the Appel database</p>
+<hr>
+
+<h3>Supported Verbs</h3>
+<table>
+  <thead>
+    <tr>
+      <th width="200">Verb</th>
+      <th width="200">URI</th>          
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><h5>GET</h5></td>
+      <td><h5>/competitions/&#60;ID&#62;/results</h5></td>      
+    </tr>    
+  </tbody>
+</table>
+<hr>
+<h3>Response</h3>
+<p class="subheader">Returns a list of Results associated with the Competition. Accepts Pagination parameters.</p>
+<pre class="json-schema">
+{
+    "ReferenceURI":"http://localhost:9630/competitions/1/results",
+    "Pagination":{
+        "per_page":10,
+        "page":1,
+        "items":2,
+        "pages":1,
+        "urls":{}
+    },
+    "Results":[
+    {
+        "ID":1,
+        "ReferenceURI":"http://localhost:9630/results/1"
+    },
+    {
+        "ID":2,
+        "ReferenceURI":"http://localhost:9630/results/2"
+    }]
+}
+</pre>
+<hr>

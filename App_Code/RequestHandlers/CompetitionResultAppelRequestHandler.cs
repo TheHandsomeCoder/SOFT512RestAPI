@@ -40,6 +40,10 @@ public class CompetitionResultAppelRequestHandler : BaseAppelRequstHandler
                 {
                     setResponseVariables(HttpStatusCode.NotFound, null);
                 }
+                catch (Exception e)
+                {
+                    setResponseVariables(HttpStatusCode.NotFound, null);
+                }
             }
         }
         else

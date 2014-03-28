@@ -12,6 +12,7 @@ using Newtonsoft.Json.Schema;
 public class APIKey
 {
     public int APIKeyID { get; set; }
+    public string Email { get; set; }
     public string Key { get; set; }    
     public bool isBlocked { get; set; }
     public long numberOfQueriesThisHour { get; set; } 

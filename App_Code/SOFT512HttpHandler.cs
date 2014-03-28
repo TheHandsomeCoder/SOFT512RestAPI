@@ -58,7 +58,7 @@ public class SOFT512HttpHandler : IHttpHandler
 
     }
 
-    private bool HasValidAPIKey(HttpRequest Request)
+    private bool HasValidAPIKey(HttpRequest Request, HttpResponse Response)
     {
         if (Request.Headers != null)
         {
@@ -83,12 +83,16 @@ public class SOFT512HttpHandler : IHttpHandler
                         {                            
                             k.numberOfQueriesEver += 1;
                             k.numberOfQueriesThisHour += 1;
+                            Response.Headers.Add("X-RateLimit-Limit", k.maxNumberOfQueries.ToString());
+                            Response.Headers.Add("X-RateLimit-Remaining", (k.numberOfQueriesThisHour - k.maxNumberOfQueries).ToString());
                             return true;
                         }
                         else if (k.isBlocked)
                         {
                             k.numberOfQueriesEver += 1;
                             k.numberOfQueriesThisHour += 1;
+                            Response.Headers.Add("X-RateLimit-Limit", k.maxNumberOfQueries.ToString());
+                            Response.Headers.Add("X-RateLimit-Remaining", (k.numberOfQueriesThisHour - k.maxNumberOfQueries).ToString());
                             return false;
                         }
                         else
@@ -96,6 +100,8 @@ public class SOFT512HttpHandler : IHttpHandler
                             k.numberOfQueriesEver += 1;
                             k.numberOfQueriesThisHour += 1;
                             rateLimitExceeded = true;
+                            Response.Headers.Add("X-RateLimit-Limit", k.maxNumberOfQueries.ToString());
+                            Response.Headers.Add("X-RateLimit-Remaining", (k.numberOfQueriesThisHour - k.maxNumberOfQueries).ToString());
                             return false;
                         }
                     }
@@ -115,7 +121,7 @@ public class SOFT512HttpHandler : IHttpHandler
     {
         HttpRequest Request = context.Request;
         HttpResponse Response = context.Response;       
-        if (HasValidAPIKey(Request))
+        if (HasValidAPIKey(Request, Response))
         {
             string acceptHeader = GetAcceptHeader(Request);
 

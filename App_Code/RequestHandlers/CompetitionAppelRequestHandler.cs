@@ -48,6 +48,10 @@ public class CompetitionAppelRequestHandler : BaseAppelRequstHandler
                 {
                     setResponseVariables(HttpStatusCode.NotFound, null);
                 }
+                catch (Exception e)
+                {
+                    setResponseVariables(HttpStatusCode.NotFound, null);
+                }
             }
         }
     }
@@ -133,6 +137,10 @@ public class CompetitionAppelRequestHandler : BaseAppelRequstHandler
                         {
                             setResponseVariables(HttpStatusCode.NotFound, null);
                         }
+                        catch (Exception e)
+                        {
+                            setResponseVariables(HttpStatusCode.NotFound, null);
+                        }
                     }
                 }
                 else
@@ -173,7 +181,10 @@ public class CompetitionAppelRequestHandler : BaseAppelRequstHandler
                 {
                     setResponseVariables(HttpStatusCode.NotFound, null);
                 }
-
+                catch (Exception e)
+                {
+                    setResponseVariables(HttpStatusCode.NotFound, null);
+                }
             }
 
         }

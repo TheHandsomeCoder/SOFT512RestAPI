@@ -48,6 +48,10 @@ public class FencerAppelRequestHandler : BaseAppelRequstHandler
                 {
                     setResponseVariables(HttpStatusCode.NotFound, null);
                 }
+                catch(Exception e)
+                {
+                    setResponseVariables(HttpStatusCode.NotFound, null);
+                }
             }
         }
     }
@@ -133,6 +137,10 @@ public class FencerAppelRequestHandler : BaseAppelRequstHandler
                         {
                             setResponseVariables(HttpStatusCode.NotFound, null);
                         }
+                        catch (Exception e)
+                        {
+                            setResponseVariables(HttpStatusCode.NotFound, null);
+                        }
                     }
                 }
                 else
@@ -170,6 +178,10 @@ public class FencerAppelRequestHandler : BaseAppelRequstHandler
                     setResponseVariables(HttpStatusCode.NoContent, null);
                 }
                 catch (System.InvalidOperationException)
+                {
+                    setResponseVariables(HttpStatusCode.NotFound, null);
+                }
+                catch (Exception e)
                 {
                     setResponseVariables(HttpStatusCode.NotFound, null);
                 }

@@ -1,0 +1,169 @@
+﻿@{
+   Layout = "~/SiteLayout.cshtml"; 
+}
+<a name="GettingStarted"></a>
+<h2>Getting Started</h2>
+<p class="subheader">All API communication is performed over HTTP. You can read and write data by using the appropriate <a href="http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods">HTTP verbs</a>.</p>
+<p class="subheader">Data can be written to the server with the POST or PUT verbs. This data must be JSON-formatted; i.e., the Content-Type header must be application/json, and the request body must be a valid JSON document, such as:</p>
+<pre class="json-schema">{"FirstName": "Scott", "LastName": "Jones", "Club":"Salle Dublin"}</pre>
+<p>Non valid bodys will fail with a 422 error, See the <a href="#HTTPCodes">HTTP Status Codes</a> for more info</p>
+
+<hr/>
+
+<a name="Authentication"></a>
+<h2>Authentication</h2>
+<p>All requests to the Appel API must be accompanied with a valid non blocked API key passed via a header in the request</p>
+<pre class="panel"><code>X-API-Key : 123456789</code></pre>
+<p>To get an API Key please see the <a href="@Href("~/docs/api_key.cshtml")">API Key page</a></p>
+<p>Note that too many requests on a single API key will result in it being blocked from accessing the API</p>
+
+
+<hr/>
+<a name="HTTPVerbs"></a>
+<h2>HTTP Verbs</h2>
+<p>The HTTP verbs supported by the API are below</p>
+<table>
+  <thead>
+    <tr>
+      <th>Verb</th>        
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><h5>GET</h5></td>       
+    </tr>   
+    <tr>
+      <td><h5>POST</h5></td>       
+    </tr> 
+    <tr>
+      <td><h5>PUT</h5></td>       
+    </tr> 
+    <tr>
+      <td><h5>DELETE</h5></td>       
+    </tr>  
+  </tbody>
+</table>
+<hr/>
+<a name="HTTPCodes"></a>
+<h2>HTTP Status Codes</h2>
+<p>Below are the status codes used by the API and a short description of what they mean.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Description</th>          
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><h5>200</h5></td>
+      <td><h5>The request was successful, and the requested data is provided in the response body.</h5></td>      
+    </tr> 
+    <tr>
+      <td><h5>201</h5></td>
+      <td><h5>You’ve sent a POST request to a list of resources to create a new one. The newly-created resource will be provided in the body of the response.</h5></td>      
+    </tr>
+    <tr>
+      <td><h5>204</h5></td>
+      <td><h5>The request was successful, and the server has no additional information to convey, so the response body is empty.</h5></td>      
+    </tr>
+    <tr>
+      <td><h5>401</h5></td>
+      <td><h5>You’re attempting to access a resource that first requires authentication or are using an API key that has been blocked. See Authenticating in the documentaion.</h5></td>      
+    </tr>
+    <tr>
+      <td><h5>403</h5></td>
+      <td><h5>You’re not allowed to access this resource. Even if you authenticated, or already have, you simply don’t have permission.</h5></td>      
+    </tr>
+    <tr>
+      <td><h5>404</h5></td>
+      <td><h5>The resource you requested doesn’t exist.</h5></td>      
+    </tr>
+    <tr>
+      <td><h5>405</h5></td>
+      <td><h5>You’re trying to use an HTTP verb that isn’t supported by the resource.</h5></td>      
+    </tr>
+    <tr>
+      <td><h5>422</h5></td>
+      <td><h5>Your request was well-formed, but there’s something semantically wrong with the body of the request. This can be due to malformed JSON, a parameter that’s missing or the wrong type, or trying to perform an action that doesn’t make any sense.</h5></td>      
+    </tr>
+    <tr>
+      <td><h5>429</h5></td>
+      <td><h5>This API only supports 200 Requests Per Key Per Hour for normal API Keys.</h5></td>      
+    </tr>   
+    <tr>
+      <td><h5>500</h5></td>
+      <td><h5>Something went wrong on our end while attempting to process your request.</h5></td>      
+    </tr>  
+  </tbody>
+</table>
+<hr/>
+
+<a name="Versioning"></a>
+<h2>Versioning</h2>
+<p class="subheader">
+There are two versions of the Appel API : <strong>beta</strong> and <strong>v1</strong>.
+    By default, all requests will receive the <strong>v1</strong> version. It is encouraged to request a specific version via the <span class="radius secondary label">Accept</span> header.</p>
+<p class="subheader">The two current accept headers are below.</p>
+<pre class="panel"><code>application/vnd.appel.v1+json</code></pre>
+<pre class="panel"><code>application/vnd.appel.beta+json</code></pre>
+
+<hr/>
+<a name="RateLimiting"></a>
+<h2>Rate Limiting</h2>
+<p>Requests are limited to <strong>200 per hour</strong> per API key. If you require more than 200 per hour please get in contact via our contact page</p>
+<p>The API will send headers in the response to help monitor usage</p>
+<table>
+  <thead>
+    <tr>
+      <th>Header Name</th>
+      <th>Description</th>          
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><h5>X-RateLimit-Limit</h5></td>
+      <td><h5>An integer representing the number of requests it’s possible to make in a 1 hour period.</h5></td>      
+    </tr> 
+    <tr>
+      <td><h5>X-RateLimit-Remaining</h5></td>
+      <td><h5>An integer representing the number of requests you have remaining.</h5></td>      
+    </tr>
+    
+  </tbody>
+</table>
+<hr/>
+<a name="Pagination"></a>
+<h2>Pagination</h2>
+<p class="subheader">Some resources represent collections of objects and may be paginated. By default, 10 items per page are shown</p>
+<p class="subheader">To browse different pages use the <span class="radius secondary label">page</span> query string parameters:</p>
+<pre class="panel"><code>GET: http://localhost:9630/fencers/1/results?page=2</code></pre>
+
+<pre class="json-schema">
+{
+    "ReferenceURI":"http://localhost:9630/fencers/1/results",
+    "Pagination":{
+        "per_page":10,
+        "page":1,
+        "items":2,
+        "pages":1,
+        "urls":{
+           "first": "http://localhost:9630/fencers/1/results?page=1",
+           "previous": "http://localhost:9630/fencers/1/results?page=1",
+           "next": "http://localhost:9630/fencers/1/results?page=3",
+           "last": "http://localhost:9630/fencers/1/results?page=10"             
+
+        }
+    },
+    "Results":[
+    {
+        "ID":1,
+        "ReferenceURI":"http://localhost:9630/results/1"
+    },
+    {
+        "ID":2,
+        "ReferenceURI":"http://localhost:9630/results/2"
+    }]
+}
+</pre>

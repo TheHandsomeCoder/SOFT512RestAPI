@@ -1,0 +1,132 @@
+﻿@{
+   
+}
+
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="stylesheet" href="@Href("~/css/foundation.css")" />
+    <link rel="stylesheet" href="@Href("~/css/main.css")" />
+    <link rel="stylesheet" href="@Href("~/css/foundation-icons.css")" />
+    <link rel="stylesheet" href="@Href("~/css/json-highlight.css")" />
+  </head>
+  <body>
+    
+      <nav class="top-bar" data-topbar>
+          <ul class="title-area">
+              <li class="name">
+                  <h1><a href="#">Appel Fencing API</a></h1>
+              </li>
+              <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+          </ul>
+
+          <section class="top-bar-section">
+              <!-- Right Nav Section -->
+              <ul class="right">
+                  <li class="divider"></li>
+                  <li>
+                      <a href="@Href("~/docs/accessing_the_api.cshtml#GettingStarted")" class="">API Documentation</a>
+                  </li>
+                  <li class="divider"></li>
+                  <li class="has-form">
+                      <a href="@Href("~/docs/api_key.cshtml")" class="small button success">Get an API Key</a>
+                  </li>
+              </ul>
+                
+                           
+          </section>
+      </nav>
+
+      <!-- Header and Nav -->
+
+      <header>
+          <div class="row">
+              <div class="large-12 columns">
+                  <h1>Appel Fencing API</h1>
+                  <h4>Keeping track of fencing results around the world</h4>
+              </div>
+          </div>
+      </header>
+
+      <!-- End Header and Nav -->
+
+       <section id="main-content">
+          <div class="row">
+             <div class="large-3 medium-4 columns">
+              <div class="hide-for-small">
+              <div class="sidebar">
+  <h5>Appel Documentation</h5>
+ 
+
+  <nav >
+    <ul class="side-nav">
+      <li class="heading">Accessing the API</li>
+
+      <li><a href="@Href("~/docs/accessing_the_api.cshtml#GettingStarted")" data-search="Getting Started">Getting Started</a></li>
+      <li><a href="@Href("~/docs/accessing_the_api.cshtml#Authentication")" data-search="Authentication">Authentication</a></li>
+      <li><a href="@Href("~/docs/accessing_the_api.cshtml#HTTPVerbs")" data-search="HTTP Verbs Headers">HTTP Verbs</a></li>
+      <li><a href="@Href("~/docs/accessing_the_api.cshtml#HTTPCodes")" data-search="HTTP Status Codes">HTTP Status Codes</a></li>
+      
+      <li><a href="@Href("~/docs/accessing_the_api.cshtml#Versioning")" data-search="Versioning">Versioning</a></li>
+      <li><a href="@Href("~/docs/accessing_the_api.cshtml#RateLimiting")" data-search="Rate Limiting">Rate Limiting</a></li>
+      <li><a href="@Href("~/docs/accessing_the_api.cshtml#Pagination")" data-search="Pagination">Pagination</a></li>
+     
+
+      <li class="divider"></li>
+      <li class="heading">Resources</li>
+      <li><a href="@Href("~/docs/resources/fencer.cshtml")" data-search="Fencer">Fencer</a></li>
+      <li><a href="@Href("~/docs/resources/fencer.cshtml#Results")" data-search="">Fencer Results</a></li>
+      <li><a href="@Href("~/docs/resources/competition.cshtml")" data-search="">Competition</a></li>
+      <li><a href="@Href("~/docs/resources/competition.cshtml#Results")" data-search="">Competition Results</a></li>      
+      <li><a href="@Href("~/docs/resources/result.cshtml")" data-search="">Results</a></li>
+
+      <li class="divider"></li>
+      <li class="heading">Contact Us</li>
+      <li><a href="mailto:scott.omalley@postgrad.plymouth.ac.uk" target="_top">Email</a></li>
+      <li><a href="https://github.com/TheHandsomeCoder/SOFT512RestAPI">Github</a></li>
+    </ul>
+  </nav>
+
+  
+
+</div>  
+              </div>
+            </div> 
+                <div class="large-9 medium-8 columns main-section">
+                     @RenderBody()
+                  </div>
+     
+</div>
+
+              
+              <div>
+              </div>
+          </div>
+      </section>
+
+      <!-- Footer -->
+
+      <footer class="row">
+          <div class="large-12 columns">
+              <hr />
+              <div class="row">
+                  <div class="large-6 columns">
+                      <p>&copy; Copyright no one at all. Go to town.</p>
+                  </div>
+                 
+              </div>
+          </div>
+      </footer>
+    
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script src="@Href("~/js/json-highlight.js")"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,67 @@
+﻿@{
+     
+     Layout = "~/SiteLayout.cshtml";
+     
+     var key = "";
+     var email = "";
+     if(IsPost)       
+     { 
+      email = Request["email"]; 
+      using (var db = new AppelContext())
+      {
+          Random RndNum = new Random();
+          int RnNum = RndNum.Next(999999999);
+          APIKey x = new APIKey { Key =RnNum.ToString(), Email = email, isBlocked = false, maxNumberOfQueries = 200, numberOfQueriesThisHour = 0, numberOfQueriesEver = 0, resetTime = DateTime.Now.AddMinutes(60) };
+          db.APIKeys.Add(x);
+          db.SaveChanges();
+          key = RnNum.ToString();
+      }  
+     
+     
+}
+}
+
+          
+                  <div class="row">
+                      <div class="large-12 columns">
+                          <h2>Get an API Key</h2>
+                          <p>
+                              To access the API you first need to generate an API for your Application
+                          </p>   
+                           <p>
+                              Currently all we require is your email to sign up but this may change in future versions.
+                          </p>                        
+                         </div>
+                  </div>
+
+                  
+    
+      <div class="signup-panel">    
+        <form method="post" action="">
+          <div class="row collapse">            
+            <div class="small-12  columns">
+              <input type="text" required name="email" placeholder="Email Address" value="@email">
+            </div>
+          </div>
+          <div class="row collapse">
+           <div class="small-12  columns">
+              <input type="text" name="key" placeholder="Your API Key will be here" value="@key">
+            </div>
+          </div> 
+            <input type="submit" href="#" class="button" value="Get Key!" />                
+        </form>
+       
+      </div>
+   
+   
+
+            
+
+                
+
+             
+              </div>
+          </div>
+ 
+
+

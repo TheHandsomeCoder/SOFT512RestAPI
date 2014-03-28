@@ -27,9 +27,9 @@ public class AppelInitializer : System.Data.Entity.DropCreateDatabaseIfModelChan
 
         var keys = new List<APIKey>
 			{
-			    new APIKey{Key="111", isBlocked = false, maxNumberOfQueries=200, numberOfQueriesThisHour = 0, numberOfQueriesEver=0, resetTime = DateTime.Now.AddMinutes(60)},
-			    new APIKey{Key="222", isBlocked = true,  maxNumberOfQueries=200, numberOfQueriesThisHour = 0, numberOfQueriesEver=0, resetTime = DateTime.Now.AddMinutes(60)},
-		        new APIKey{Key="000", isBlocked = false,  maxNumberOfQueries=-1, numberOfQueriesThisHour = 0, numberOfQueriesEver=0, resetTime = DateTime.Now.AddMinutes(60)}
+			    new APIKey{Key="111", Email="scottyomalley@gmail.com",isBlocked = false, maxNumberOfQueries=200, numberOfQueriesThisHour = 0, numberOfQueriesEver=0, resetTime = DateTime.Now.AddMinutes(60)},
+			    new APIKey{Key="222", Email="scott.omalley@postgrad.plymouth.ac.uk", isBlocked = true,  maxNumberOfQueries=200, numberOfQueriesThisHour = 0, numberOfQueriesEver=0, resetTime = DateTime.Now.AddMinutes(60)},
+		        new APIKey{Key="000", Email="somalley@itnet.ie", isBlocked = false,  maxNumberOfQueries=-1, numberOfQueriesThisHour = 0, numberOfQueriesEver=0, resetTime = DateTime.Now.AddMinutes(60)}
 			};
 
         keys.ForEach(f => context.APIKeys.Add(f));
